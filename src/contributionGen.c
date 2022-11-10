@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <string.h>
+#include <math.h>
 
 int main() {
 
@@ -18,6 +19,7 @@ int main() {
         scanf("%d", &numberOfCommits);
 
         for(int i=0; i<numberOfCommits; i++) {
+            int randomNumber = rand();
             char randomCommit[25] = "generated random Commit";
             char space[2] = "\n";
             fputs(randomCommit, filePointer);
