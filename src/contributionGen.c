@@ -10,7 +10,7 @@ int main() {
     FILE *filePointer;
     int numberOfCommits = 0;
 
-    filePointer = fopen("../assets/file.txt", "w");
+    filePointer = fopen("./assets/file.txt", "w");
 
     if(filePointer == NULL){
       printf("Error!");   
