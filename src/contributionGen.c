@@ -17,12 +17,13 @@ int main() {
       printf("Error!");   
       exit(1);             
    }else {
+   	
+   	    fclose(filePointer);
         printf("Enter the number of commits: ");
         scanf("%d", &numberOfCommits);
 
         for(int i=0; i<numberOfCommits; i++) {
         	
-        	fclose(filePointer);
         	reserverdFilePointer = fopen("./assets/file.txt", "w");
         	
     		time_t seconds;
