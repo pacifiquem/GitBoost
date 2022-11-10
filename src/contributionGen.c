@@ -8,6 +8,7 @@
 int main() {
 
     FILE *filePointer;
+    FILE *reserverdFilePointer;
     int numberOfCommits = 0;
 
     filePointer = fopen("./assets/file.txt", "w");
@@ -21,6 +22,9 @@ int main() {
 
         for(int i=0; i<numberOfCommits; i++) {
         	
+        	fclose(filePointer);
+        	reserverdFilePointer = fopen("./assets/file.txt", "w");
+        	
     		time_t seconds;
     		seconds = time(NULL);
     		
@@ -31,15 +35,17 @@ int main() {
             char space[2] = "\n";
             fputs(randomWord, filePointer);
             fputs(space, filePointer);
+            fputs("changed !", filePointer);
+            fputs(space, filePointer);
+
+            fclose(reserverdFilePointer);
 
             system("git add .");
             system("git commit -m \" randomCommit \"");
-            fputs("pushed !", filePointer);
             
         }
    }
-
-   fclose(filePointer);
+   
    system("git push origin master");
 
     return 0;
