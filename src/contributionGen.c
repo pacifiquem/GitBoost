@@ -29,12 +29,13 @@ int main() {
     		sprintf(randomWord, "%ld", seconds+randomWordLength+i);
     		
             char space[2] = "\n";
-            fprintf(filePointer, randomWord);
-            fprintf(filePointer, space);
+            fputs(randomWord, filePointer);
+            fputs(space, filePointer);
 
             system("git add .");
             system("git commit -m \" randomCommit \"");
-            printf("pushed !");
+            fputs(filePointer, "pushed !");
+            
         }
    }
 
