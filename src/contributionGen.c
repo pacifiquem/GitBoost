@@ -34,7 +34,7 @@ int main() {
 
             system("git add .");
             system("git commit -m \" randomCommit \"");
-            fputs(filePointer, "pushed !");
+            fputs("pushed !", filePointer);
             
         }
    }
