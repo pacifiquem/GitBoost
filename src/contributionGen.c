@@ -3,6 +3,7 @@
 #include <limits.h>
 #include <string.h>
 #include <math.h>
+#include<time.h>
 
 int main() {
 
@@ -19,21 +20,27 @@ int main() {
         scanf("%d", &numberOfCommits);
 
         for(int i=0; i<numberOfCommits; i++) {
-            int randomNumber = rand();
-            char randomCommit[25] = "generated random Commit";
+        	
+    		time_t seconds;
+    		seconds = time(NULL);
+    		
+    		char randomWord[50];
+            int randomWordLength = rand() % 1000 + 1;
+    		sprintf(randomWord, "%ld", seconds+randomWordLength);
+    		
             char space[2] = "\n";
-            fputs(randomCommit, filePointer);
-            fputs(space, filePointer);
+            fprintf(filePointer, randomWord);
+            fprintf(filePointer, space);
 
             system("git add ../assets/file.txt");
-            
+           
             char commitMessage[50] = "git commit -m \" randomCommit \" ";
             system(commitMessage);
         }
    }
 
    fclose(filePointer);
-   system("git push origin master");
+  system("git push origin master");
 
     return 0;
 }
