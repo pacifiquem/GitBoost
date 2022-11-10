@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <string.h>
 
 int main() {
 
@@ -17,16 +18,22 @@ int main() {
         scanf("%d", &numberOfCommits);
 
         for(int i=0; i<numberOfCommits; i++) {
-            char randomCommit[] = "generated random Commit" + i;
+            char randomCommit[25] = "generated random Commit \" ";
+            char space[2] = "\n";
             fputs(randomCommit, filePointer);
+            fputs(space, filePointer);
 
             system("git add ../assets/file.txt");
-            system("git commit -m \"%s\"", randomCommit);
+            
+            char commitMessage[50] = "git commit -m \" ";
+			strcat(commitMessage, randomCommit); 
+            
+            system(commitMessage);
         }
    }
 
    fclose(filePointer);
-   system("git push origin main");
+   system("git push origin master");
 
     return 0;
 }
