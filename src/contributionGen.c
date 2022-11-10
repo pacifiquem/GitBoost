@@ -26,21 +26,20 @@ int main() {
     		
     		char randomWord[50];
             int randomWordLength = rand() % 1000 + 1;
-    		sprintf(randomWord, "%ld", seconds+randomWordLength);
+    		sprintf(randomWord, "%ld", seconds+randomWordLength+i);
     		
             char space[2] = "\n";
             fprintf(filePointer, randomWord);
             fprintf(filePointer, space);
 
-            system("git add ../assets/file.txt");
-           
-            char commitMessage[50] = "git commit -m \" randomCommit \" ";
-            system(commitMessage);
+            system("git add .");
+            system("git commit -m \" randomCommit \"");
+            printf("pushed !");
         }
    }
 
    fclose(filePointer);
-  system("git push origin master");
+   system("git push origin master");
 
     return 0;
 }
