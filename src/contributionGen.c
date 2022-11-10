@@ -18,16 +18,14 @@ int main() {
         scanf("%d", &numberOfCommits);
 
         for(int i=0; i<numberOfCommits; i++) {
-            char randomCommit[25] = "generated random Commit \" ";
+            char randomCommit[25] = "generated random Commit";
             char space[2] = "\n";
             fputs(randomCommit, filePointer);
             fputs(space, filePointer);
 
             system("git add ../assets/file.txt");
             
-            char commitMessage[50] = "git commit -m \" ";
-			strcat(commitMessage, randomCommit); 
-            
+            char commitMessage[50] = "git commit -m \" randomCommit \" ";
             system(commitMessage);
         }
    }
